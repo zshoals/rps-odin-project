@@ -43,6 +43,28 @@
             console.log(`Ties: ${ties}.`);
         }
         
+        function playRound(computerInput, userInput) {
+            //Case insensitive check against player input and computerplay results
+            if (userInput === computerInput) {
+                return "tie";
+            }
+            else if (userInput === "rock" && computerInput === "scissors"){
+                return "pWin";
+            }
+            else if (userInput === "paper" && computerInput === "rock"){
+                return "pWin";
+            }
+            else if (userInput === "scissors" && computerInput === "paper"){
+                return "pWin";
+            }
+            else if (userInput === "rock" && computerInput === "scissors"){
+                return "pWin";
+            }
+            else {
+                return "cWin"
+            }
+        }
+
         function getComputerInput() {
             //randomly returns an RPS result
             let rand = Math.floor((Math.random() * 100));
@@ -68,29 +90,7 @@
                 return userInput;
             }
         }
-
-        function playRound(computerInput, userInput) {
-            //Case insensitive check against player input and computerplay results
-            if (userInput === computerInput) {
-                return "tie";
-            }
-            else if (userInput === "rock" && computerInput === "scissors"){
-                return "pWin";
-            }
-            else if (userInput === "paper" && computerInput === "rock"){
-                return "pWin";
-            }
-            else if (userInput === "scissors" && computerInput === "paper"){
-                return "pWin";
-            }
-            else if (userInput === "rock" && computerInput === "scissors"){
-                return "pWin";
-            }
-            else {
-                return "cWin"
-            }
-        }
-
+        
         function playerWinText(computerInput, userInput) {
             console.log(`Congratulations, you win! ${userInput} beats ${computerInput}!`);
         }
