@@ -6,6 +6,85 @@
 </head>
 <body>
     <script>
+        function game() {
+            let userWins = 0;
+            let computerWins = 0;
+            let ties = 0;
+
+            let roundCount = 5;
+
+            let computerInput = null;
+            let userInput = null;
+
+
+            for (i = 0; i < roundCount; i++) {
+                while (userInput === null) {
+                    userInput = getUserInput();
+                }
+                computerInput = getComputerInput();
+
+                let result = playRound(computerInput, userInput);
+                if (result === "pWin") {
+                    
+                }
+            }
+        }
+        
+        function getComputerInput() {
+            //randomly returns an RPS result
+            let randValue = Math.Floor((Math.Random() * 100));
+
+            if (rand <= 33) {
+                return "rock";
+            }
+            else if (rand <= 66) {
+                return "paper";
+            }
+            else {
+                return "scissors";
+            }
+        }
+
+        function getUserInput() {
+            let userInput = String.toLowerCase(prompt("Please input a valid selection: rock, paper, or scissors."));
+
+            if (!(userInput === "rock" || userInput === "paper" || userInput === "scissors")) {
+                return null;
+            }
+            else {
+                return userInput;
+            }
+        }
+
+        function playRound(computerInput, userInput) {
+            //Case insensitive check against player input and computerplay results
+            if (userInput === computerInput) {
+                return "tie";
+            }
+            else if (userInput === "rock" && computerInput === "scissors"){
+                return "pWin";
+            }
+            else if (userInput === "paper" && computerInput === "rock"){
+                return "pWin";
+            }
+            else if (userInput === "scissors" && computerInput === "paper"){
+                return "pWin";
+            }
+            else if (userInput === "rock" && computerInput === "scissors"){
+                return "pWin";
+            }
+            else {
+                return "cWin"
+            }
+        }
+
+        function playerWinText(computerInput, userInput) {
+            console.log(`Congratulations, you win! ${userInput} beats ${computerInput}!`);
+        }
+
+        function computerWinText(computerInput, userInput) {
+            console.log(`Unfortunate, you lose! ${computerInput} beats ${userInput}!`);
+        }
     </script>
 </body>
 </html>
