@@ -16,8 +16,8 @@
             let computerInput = null;
             let userInput = null;
 
-
             for (i = 0; i < roundCount; i++) {
+                userInput = null;
                 while (userInput === null) {
                     userInput = getUserInput();
                 }
@@ -25,14 +25,27 @@
 
                 let result = playRound(computerInput, userInput);
                 if (result === "pWin") {
-                    
+                    userWins++;
+                    playerWinText(computerInput, userInput);
+                }
+                else if (result === "cWin") {
+                    computerWins++;
+                    computerWinText(computerInput, userInput);
+                }
+                else if (result === "tie") {
+                    ties++;
+                    tieText(computerInput, userInput);
                 }
             }
+
+            console.log(`Player wins: ${userWins}.`);
+            console.log(`Computer wins: ${computerWins}.`);
+            console.log(`Ties: ${ties}.`);
         }
         
         function getComputerInput() {
             //randomly returns an RPS result
-            let randValue = Math.Floor((Math.Random() * 100));
+            let rand = Math.floor((Math.random() * 100));
 
             if (rand <= 33) {
                 return "rock";
@@ -46,7 +59,7 @@
         }
 
         function getUserInput() {
-            let userInput = String.toLowerCase(prompt("Please input a valid selection: rock, paper, or scissors."));
+            let userInput = (prompt("Please input a valid selection: rock, paper, or scissors.")).toLowerCase();
 
             if (!(userInput === "rock" || userInput === "paper" || userInput === "scissors")) {
                 return null;
@@ -84,6 +97,10 @@
 
         function computerWinText(computerInput, userInput) {
             console.log(`Unfortunate, you lose! ${computerInput} beats ${userInput}!`);
+        }
+
+        function tieText(computerInput, userInput) {
+            console.log(`It's a tie! ${userInput} matches ${computerInput}!`);
         }
     </script>
 </body>
