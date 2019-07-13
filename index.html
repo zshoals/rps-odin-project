@@ -3,105 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
-    <script>
-        function game() {
-            let userWins = 0;
-            let computerWins = 0;
-            let ties = 0;
-
-            let roundCount = 5;
-
-            let computerInput = null;
-            let userInput = null;
-
-            for (i = 0; i < roundCount; i++) {
-                userInput = null;
-                while (userInput === null) {
-                    userInput = getUserInput();
-                }
-                computerInput = getComputerInput();
-
-                let result = playRound(computerInput, userInput);
-                if (result === "pWin") {
-                    userWins++;
-                    playerWinText(computerInput, userInput);
-                }
-                else if (result === "cWin") {
-                    computerWins++;
-                    computerWinText(computerInput, userInput);
-                }
-                else if (result === "tie") {
-                    ties++;
-                    tieText(computerInput, userInput);
-                }
-            }
-
-            console.log(`Player wins: ${userWins}.`);
-            console.log(`Computer wins: ${computerWins}.`);
-            console.log(`Ties: ${ties}.`);
-        }
-        
-        function playRound(computerInput, userInput) {
-            //Case insensitive check against player input and computerplay results
-            if (userInput === computerInput) {
-                return "tie";
-            }
-            else if (userInput === "rock" && computerInput === "scissors"){
-                return "pWin";
-            }
-            else if (userInput === "paper" && computerInput === "rock"){
-                return "pWin";
-            }
-            else if (userInput === "scissors" && computerInput === "paper"){
-                return "pWin";
-            }
-            else if (userInput === "rock" && computerInput === "scissors"){
-                return "pWin";
-            }
-            else {
-                return "cWin"
-            }
-        }
-
-        function getComputerInput() {
-            //randomly returns an RPS result
-            let rand = Math.floor((Math.random() * 100));
-
-            if (rand <= 33) {
-                return "rock";
-            }
-            else if (rand <= 66) {
-                return "paper";
-            }
-            else {
-                return "scissors";
-            }
-        }
-
-        function getUserInput() {
-            let userInput = (prompt("Please input a valid selection: rock, paper, or scissors.")).toLowerCase();
-
-            if (!(userInput === "rock" || userInput === "paper" || userInput === "scissors")) {
-                return null;
-            }
-            else {
-                return userInput;
-            }
-        }
-        
-        function playerWinText(computerInput, userInput) {
-            console.log(`Congratulations, you win! ${userInput} beats ${computerInput}!`);
-        }
-
-        function computerWinText(computerInput, userInput) {
-            console.log(`Unfortunate, you lose! ${computerInput} beats ${userInput}!`);
-        }
-
-        function tieText(computerInput, userInput) {
-            console.log(`It's a tie! ${userInput} matches ${computerInput}!`);
-        }
-    </script>
+    <div class="gameplay-area">
+        <div class ="scorecards">
+            <div class="player-card">
+                <!--player text, selected hand, player score-->
+                <h1 id="player-score-text">Player Score</h1>
+                <img src="img/unknown.jpg" alt="Player Choice" id="player-choice-image">
+                <h2 id="player-score">0</h2>
+            </div>
+            <div class="tie-card">
+                <!--tie text, tie count/score-->
+                <h1 id="tie-score-text">Ties</h1>
+                <h2 id="tie-score">0</h2>
+            </div>
+            <div class="computer-card">
+                <!--computer text, selected hand, computer score-->
+                <h1 id="computer-score-text">Computer Score</h1>
+                <img src="img/unknown.jpg" alt="Computer Choice" id="computer-choice-image">
+                <h2 id="computer-score">0</h2>
+            </div>
+            <div class="versus-card">
+                <!--versus text, anything else like an image maybe-->
+                <h3 id="versus-text">VS</h3>
+            </div>
+            <div class="win-lose-card">
+                <h3 id="win-lose-text"></h3>
+            </div>
+        </div>
+        <div class="selections">
+            <div class="select-card">
+                <!--select text, image?-->
+                <img src="" alt="" id="">
+                <h1>Select a Hand...</h1>
+            </div>
+            <div class="rock-card">
+                <!--rock button + image check if image clicked?-->
+                <img src="img/rock.png" alt="Rock">
+                <h4 class="hand-text">Rock</h4>
+            </div>
+            <div class="paper-card">
+                <!--paper button + image-->
+                <img src="img/paper.png" alt="Paper">
+                <h4 class="hand-text">Paper</h4>
+            </div>
+            <div class="scissors-card">
+                <!--scissors button + image-->
+                <img src="img/scissors.png" alt="Scissors">
+                <h4 class="hand-text">Scissors</h4>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+<script type="text/javascript" src="rpsNew.js"></script>
