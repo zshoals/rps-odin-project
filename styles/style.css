@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(68, 68, 68);
+    width: 100%;
+}
+
+h1 {
+    font-family: "Iosevka SS06", sans-serif;
+    font-size: 3em;
+}
+
+h2 {
+    font-family: "Georgia", monospace;
+    font-size: 5em;
+}
+
+.gameplay-area {
+    margin: 50px;
+    padding: 10px;
+    border: 5px solid darkgrey;
+    border-radius: 10px;
+}
+
+.scorecards {
+    display: grid;
+    grid: 400px / 40% 20% 40%;
+    justify-items: stretch;
+}
+
+.choice-images {
+    height: 200px;
+    width: 200px;
+}
+
+.computer-card, .player-card, .tie-card {
+    overflow: hidden;
+}
+
+.computer-card {
+    grid-row: 1 / span 1;
+    grid-column: 3 / span 1;
+    min-width: 400px;
+}
+
+.player-card {
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
+    min-width: 400px;
+}
+
+.tie-card {
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 1;
+    min-width: 100px;
+}
