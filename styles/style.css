@@ -5,11 +5,19 @@
 
 body {
     background-color: rgb(68, 68, 68);
-    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-shadow: 3px 3px 5px rgb(61, 61, 61, 0.95);
 }
 
 h1 {
-    font-family: "Iosevka SS06", sans-serif;
+    font-family: "Georgia", sans-serif;
     font-size: 3em;
 }
 
@@ -18,42 +26,127 @@ h2 {
     font-size: 5em;
 }
 
+h3 {
+    font-family: "Georgia", monospace;
+    font-size: 4em;
+}
+
 .gameplay-area {
-    margin: 50px;
+    margin: 30px 250px;
     padding: 10px;
     border: 5px solid darkgrey;
     border-radius: 10px;
+    background-color: rgb(104, 104, 104);
+    min-width: 1200px;
 }
+
+
+/* Scoreboard reporting section */
 
 .scorecards {
     display: grid;
-    grid: 400px / 40% 20% 40%;
-    justify-items: stretch;
+    grid: 400px / minmax(200px, 40%) minmax(100px, 20%) minmax(200px, 40%);
+    justify-items: center;
+    align-items: center;
+    border: 5px solid black;
 }
 
 .choice-images {
-    height: 200px;
-    width: 200px;
+    min-height: 100px;
+    min-width: 100px;
+    max-height: 200px;
+    max-width: 200px;
+    transition-duration: 5ms;
 }
 
-.computer-card, .player-card, .tie-card {
+.computer-card,
+.player-card,
+.tie-card,
+.versus-card,
+.win-lose-card {
     overflow: hidden;
+    text-align: center;
+    text-overflow: hidden;
 }
 
 .computer-card {
     grid-row: 1 / span 1;
     grid-column: 3 / span 1;
     min-width: 400px;
+    border: 2px solid rgb(19, 19, 19);
+    border-radius: 10px;
 }
 
 .player-card {
     grid-row: 1 / span 1;
     grid-column: 1 / span 1;
     min-width: 400px;
+    border: 2px solid rgb(19, 19, 19);
+    border-radius: 10px;
 }
 
-.tie-card {
+.tie-card,
+.versus-card,
+.win-lose-card {
     grid-row: 1 / span 1;
     grid-column: 2 / span 1;
     min-width: 100px;
+    position: relative;
+    bottom: 20%;
+}
+
+.versus-card {
+    top: 10%;
+    border: 6px dashed darkslategrey;
+    color: darkred;
+}
+
+.win-lose-card {
+    top: 40%;
+    bottom: 0%;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* Player selection area */
+
+.selections {
+    margin: 50px;
+    padding: 10px;
+    display: grid;
+    grid: 100px 300px / minmax(200px, 40%) minmax(100px, 20%) minmax(200px, 40%);
+    justify-items: center;
+
+    border: 5px solid black;
+}
+
+.select-card {
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 3;
+    text-align: center;
+}
+
+.rock-card,
+.paper-card,
+.scissors-card {
+    grid-row: 2 / span 1;
+    text-align: center;
+}
+
+#rock-button:hover,
+#paper-button:hover,
+#scissors-button:hover {
+    background-color: rgba(203, 206, 30, 0.5)
+}
+
+.rock-card {
+    grid-column: 1 / span 1;
+}
+
+.paper-card {
+    grid-column: 2 / span 1;
+}
+
+.scissors-card {
+    grid-column: 3 / span 1;
 }

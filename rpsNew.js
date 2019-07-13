@@ -82,12 +82,15 @@ function updateScores(condition) {
     tieScore.textContent = ties.toString();
 
     if (condition === "pWin") {
+        playerWinLoseTieText.style.color = "lightgreen";
         playerWinLoseTieText.textContent = "Winner!";
     }
     else if (condition === "cWin") {
+        playerWinLoseTieText.style.color = "red";
         playerWinLoseTieText.textContent = "Loser!";
     }
     else if (condition === "tie") {
+        playerWinLoseTieText.style.color = "lightblue";
         playerWinLoseTieText.textContent = "Tie!";
     }
     else {
