@@ -1,1 +1,3 @@
-Rock paper scissors game with a simple frontend
+Rock paper scissors game.
+
+Built for part of The Odin Project coursework.
